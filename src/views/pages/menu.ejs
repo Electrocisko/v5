@@ -90,6 +90,13 @@
               value="Ver carrito"
             />
           </a>
+
+          <button class="btn btn-warning btn-sm m-1" id="toast">Toast</button>
+
+
+
+
+
           <h1>Lista de productos</h1>
 
           <div>
@@ -105,6 +112,29 @@
         <hr />
       </form>
     </main>
+
+
+
+  
+
+    <div class="toast-container position-fixed top-50 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <!-- <img src="..." class="rounded me-2" alt="..."> -->
+          <strong class="me-auto">Holland Blue</strong>
+          <small>Cerrar</small>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Agregado!
+        </div>
+      </div>
+    </div>
+
+
+
+
+
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script

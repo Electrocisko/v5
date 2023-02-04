@@ -4,16 +4,24 @@ let eventDetail = document.querySelectorAll(".seeDetail");
 let inStock;
 let url = `/api/carts/${cartId}/products`;
 
+const toastTrigger = document.getElementById('toast');
+const toastAlert = document.getElementById('liveToast')
 
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    const toast = new bootstrap.Toast(toastLiveExample)
+toastTrigger.addEventListener('click', (e) => {
+  e.preventDefault()
+  const toast = new bootstrap.Toast(toastAlert);
+  toast.show();
+})
 
-    toast.show()
-  })
-}
+// const toastTrigger = document.getElementById('liveToastBtn')
+// const toastLiveExample = document.getElementById('liveToast')
+// if (toastTrigger) {
+//   toastTrigger.addEventListener('click', () => {
+//     const toast = new bootstrap.Toast(toastLiveExample)
+
+//     toast.show()
+//   })
+// }
 
 
 
