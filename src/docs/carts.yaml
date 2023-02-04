@@ -1,0 +1,54 @@
+components:
+  schemas:
+    Cart:
+      type: object
+      properties:
+        _id:
+          type: ObjectId
+          description: Id autogenerado por MongoDb
+        products:
+          type: Array
+          description: Devuelve un array con el id de los productos en carrito
+paths:
+  /api/carts/:
+    get:
+      summary: devuelve los carritos de la base de datos
+      tags:
+        - Carts
+    post:
+      summary: devuelve Id de carrito creado
+      tags:
+        - Carts
+  /api/carts/{cid}:
+    get:
+      summary: devuelve cart por Id
+      tags:
+        - Carts
+    delete:
+      summary: Borra carito por id
+      tags:
+        - Carts
+    put:
+      summary: Modifica datos de carrito por id
+      tags:
+        - Carts
+  /api/carts/{cid}/products/:
+    get:
+      summary: Devuelve los productos en detalle del carrito
+      tags:
+        - Carts
+    put:
+      summary: Actualiza cantidad de productos en carrito
+      tags:
+        - Carts
+  /api/carts/{cid}/subtract/:
+    put:
+      summary: Para disminuir cantidad en producto
+      tags:
+        - Carts
+  /api/carts/{cid}/deleteproduct/:
+    put:
+      summary: Para eliminar un producto dentro del carrito
+      tags:
+        - Carts
+        

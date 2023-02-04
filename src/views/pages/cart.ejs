@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {headtitle:'Ecommerce-Cart'}) %>
+  </head>
+
+  <body class="container">
+    <header><%- include('../partials/navbar.ejs') %></header>
+    <main id="main">
+      <h3>Productos en carrito</h3>
+
+      <a href="/menu">
+        <input type=" button" class="btn btn-primary btn-sm m-1" value="Volver" />
+      </a>
+      <input
+        type=" button"
+        onclick="emptyCart('<%= user.cart%>')"
+        class="btn btn-primary btn-sm m-1"
+        value="Vaciar Carrito"
+      />
+
+      <div id="order">
+        <h4>Pedido usuario: <%= user.name %></h4>
+        <p id="email"><%= user.email %></p>
+        <p>Id carrito: <span id="cartId"><%= user.cart %></span></p>
+        <p>Dirección: <span id="address-buyer"><%= user.address %> </span></p>
+
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Producto</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Imagen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% products.forEach(product=> { %>
+            <tr>
+              <th scope="row" class="align-middle fs-6">
+                <%= product.product.name %>
+              </th>
+              <td class="align-middle fs-6"><%= product.quantity %></td>
+              <td class="align-middle fs-6">
+                <%= (product.product.price * product.quantity) %>
+              </td>
+              <td>
+                <button
+                  class="btn btn-info btn-sm m-1"
+                  onclick='addProduct("<%= product.product._id %>","<%=user.cart%>")'
+                >
+                  +
+                </button>
+                <button
+                  class="btn btn-info btn-sm m-1"
+                  onclick='subtractProduct("<%= product.product._id %>","<%=user.cart%>")'
+                >
+                  -
+                </button>
+              </td>
+              <td>
+                <img
+                  src="img/<%= product.product.thumbnail %>"
+                  alt="producto"
+                  height="40px"
+                />
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+        <div id="total-price"></div>
+      </div>
+    </main>
+
+    <button class="btn btn-primary btn-sm m-1" id="sendMail">
+      Confirmar Pedido
+    </button>
+
+    <% products.forEach(product=> { %>
+    <p class="precios" hidden>
+      <%= (product.product.price * product.quantity) %>
+    </p>
+    <% }) %>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

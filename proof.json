@@ -1,0 +1,36 @@
+[
+  {
+    "_id": "636994b2a8f73a617e752763",
+    "products": [
+      {
+        "product": {
+          "_id": "636abdd855a702ed60316a7d",
+          "name": "Taza de Cafe",
+          "description": "Pintado a mano Delft Blue.",
+          "code": "AAA",
+          "price": 25000,
+          "stock": 3,
+          "thumbnail": "1667939800032-taza.jpg",
+          "__v": 0
+        },
+        "quantity": 2,
+        "_id": "636d556e14806a70f73af81a"
+      },
+      {
+        "product": {
+          "_id": "636abd6455a702ed60316a79",
+          "name": "Azulejo Vermeer",
+          "description": "Azulejo pintado a mano Delft Blue.",
+          "code": "AAA",
+          "price": 15000,
+          "stock": 5,
+          "thumbnail": "1667939684887-azulejo-vermeer.jpg",
+          "__v": 0
+        },
+        "quantity": 4,
+        "_id": "636d6145eb37eb731ed8cd53"
+      }
+    ],
+    "__v": 0
+  }
+]

@@ -1,0 +1,10 @@
+<div class="card m-2" style="width: 18rem;">
+    <img src="img/<%= product.thumbnail %>" class="card-img-top" alt="..." >
+    <div class="card-body">
+      <h5 class="card-title"><%= product.name %></h5>
+      <p class="card-text">Precio $ <%=  product.price%></p>
+      <p class="card-text">Stock: <%=  product.stock%></p>
+      <button value="<%= product._id %>" type="button" class="btn btn-primary addCart" id="liveToastBtn">Agregar</button>
+      <button value="<%= product._id %>" type="button" class="btn btn-primary seeDetail">Detalle</button>
+    </div>
+  </div>

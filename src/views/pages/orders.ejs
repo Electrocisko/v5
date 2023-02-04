@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head.ejs', {headtitle:'Orders'}) %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/navbar.ejs') %></header>
+    <main>
+      <h1>Orders</h1>
+      <a href="/menu" style="text-decoration: none">
+        <input
+          type=" button"
+          class="btn btn-dark btn-sm"
+          value="Volver a Productos"
+        />
+      </a>
+      <table class="table table-striped">
+        <tr>
+          <th scope="col">Orden Nro:</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Email usuario</th>
+          <th scope="col">Cant Items</th>
+        </tr>
+        <tbody>
+          <% orders.forEach(order => { %>
+          <tr>
+            <th><%= order.orderNro %></th>
+            <td><%= order.created_at %></td>
+            <td><%= order.status %></td>
+            <td><%= order.buyerEmail %></td>
+            <td><%= order.items %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
