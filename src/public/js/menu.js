@@ -5,25 +5,13 @@ let inStock;
 let url = `/api/carts/${cartId}/products`;
 
 const toastTrigger = document.getElementById('toast');
-const toastAlert = document.getElementById('liveToast')
+const toastAlert = document.getElementById('liveToast');
+const toast = new bootstrap.Toast(toastAlert);
 
 toastTrigger.addEventListener('click', (e) => {
   e.preventDefault()
-  const toast = new bootstrap.Toast(toastAlert);
   toast.show();
 })
-
-// const toastTrigger = document.getElementById('liveToastBtn')
-// const toastLiveExample = document.getElementById('liveToast')
-// if (toastTrigger) {
-//   toastTrigger.addEventListener('click', () => {
-//     const toast = new bootstrap.Toast(toastLiveExample)
-
-//     toast.show()
-//   })
-// }
-
-
 
 
 eventList.forEach((element) => {
@@ -59,6 +47,7 @@ eventList.forEach((element) => {
             //     timer: 1000,
             //   });
             // })
+            .then( toast.show())
             .then(() => {
               fetch(`/api/products/${prodID}`, {
                 method: "PUT",
@@ -71,7 +60,10 @@ eventList.forEach((element) => {
               })
                 .then((response) => response.json())
                 .then(() => {
-                  location.reload();
+                  setTimeout( () => {
+                    location.reload();
+                  },2000)
+                  
                 });
             })
         }
