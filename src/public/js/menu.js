@@ -31,7 +31,7 @@ eventList.forEach((element) => {
             },
           })
             .then((response) => response.json())
-            .then(toast.show())
+            //.then(toast.show())
             .then(() => {
               fetch(`/api/products/${prodID}`, {
                 method: "PUT",
@@ -44,9 +44,9 @@ eventList.forEach((element) => {
               })
                 .then((response) => response.json())
                 .then(() => {
-                  setTimeout(() => {
+                
                     location.reload();
-                  }, 1000);
+              
                 });
             });
         }
