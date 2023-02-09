@@ -20,7 +20,6 @@ eventList.forEach((element) => {
       .then((json) => {
         inStock = json.stock;
         if (inStock <= 0) {
-          //Swal.fire('Sin stock')
           stockToast.show();
         } else {
           console.log("con stock");
@@ -49,7 +48,7 @@ eventList.forEach((element) => {
                 .then(() => {
                   setTimeout( () => {
                     location.reload();
-                  },2000)
+                  },1000)
                   
                 });
             })
