@@ -18,14 +18,6 @@ else {
 }
 
 
-
-
-
-
-
-
-
-
 eventList.forEach((element) => {
   element.addEventListener("click", (e) => {
     e.preventDefault();
@@ -51,7 +43,7 @@ eventList.forEach((element) => {
             },
           })
             .then((response) => response.json())
-            //.then(toast.show())
+            .then(toast.show())
             .then(() => {
               fetch(`/api/products/${prodID}`, {
                 method: "PUT",
