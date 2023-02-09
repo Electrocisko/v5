@@ -91,12 +91,7 @@
             />
           </a>
 
-          <button class="btn btn-warning btn-sm m-1" id="toast">Toast</button>
-
-
-
-
-
+     
           <h1>Lista de productos</h1>
 
           <div>
@@ -118,19 +113,31 @@
   <!-- TOAST -->
 
     <div class="toast-container position-fixed top-50 start-50 translate-middle">
-      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
-        <div class="toast-header">
-          <!-- <img src="..." class="rounded me-2" alt="..."> -->
-          <strong class="me-auto">Holland Blue</strong>
-          <small>Cerrar</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-        <div class="toast-body">
-          Agregado!
+      <div id="liveToast" class="toast text-bg-primary" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+        <div class="d-flex">
+          <div class="toast-body">
+            <strong class="me-auto">Agregado !</strong>
+          </div>
+          <button type="button" class="btn-close me-2 m-auto btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
       </div>
     </div>
   <!-- TOAST -->
+
+  
+  <!-- TOAST STOCK-->
+
+  <div class="toast-container position-fixed top-50 start-50 translate-middle">
+    <div id="stockToast" class="toast text-bg-danger" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+      <div class="d-flex">
+        <div class="toast-body">
+          <strong class="me-auto">Sin Stock</strong>
+        </div>
+        <button type="button" class="btn-close me-2 m-auto btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+<!-- TOAST STOCK -->
 
 
 

@@ -4,14 +4,9 @@ let eventDetail = document.querySelectorAll(".seeDetail");
 let inStock;
 let url = `/api/carts/${cartId}/products`;
 
-const toastTrigger = document.getElementById('toast');
-const toastAlert = document.getElementById('liveToast');
-const toast = new bootstrap.Toast(toastAlert);
+const toast = new bootstrap.Toast(document.getElementById('liveToast'));
+const stockToast = new bootstrap.Toast(document.getElementById('stockToast'));
 
-toastTrigger.addEventListener('click', (e) => {
-  e.preventDefault()
-  toast.show();
-})
 
 
 eventList.forEach((element) => {
@@ -25,7 +20,8 @@ eventList.forEach((element) => {
       .then((json) => {
         inStock = json.stock;
         if (inStock <= 0) {
-          Swal.fire('Sin stock')
+          //Swal.fire('Sin stock')
+          stockToast.show();
         } else {
           console.log("con stock");
           fetch(url, {
@@ -38,15 +34,6 @@ eventList.forEach((element) => {
             },
           })
             .then((response) => response.json())
-            // .then((data) => {
-            //   Swal.fire({
-            //     position: "top-end",
-            //     icon: "success",
-            //     title: "Agregado al carrito",
-            //     showConfirmButton: false,
-            //     timer: 1000,
-            //   });
-            // })
             .then( toast.show())
             .then(() => {
               fetch(`/api/products/${prodID}`, {
