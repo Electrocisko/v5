@@ -6,6 +6,7 @@ let orderToSend = document.getElementById("order");
 let cartId = document.getElementById("cartId").textContent;
 let userMail = document.getElementById("email").textContent;
 let addressBuyer = document.getElementById("address-buyer").textContent;
+const stockToast = new bootstrap.Toast(document.getElementById("stockToast"));
 
 let sum = 0;
 let orderNro;
@@ -164,7 +165,8 @@ let addProduct = (prodID, cartId) => {
     .then((response) => response.json())
     .then((json) => {
       if (json.stock <= 0) {
-        Swal.fire("Sin stock");
+        //Swal.fire("Sin stock");
+        stockToast.show();
       } else {
         console.log("con stock");
         let url = `/api/carts/${cartId}/products`;

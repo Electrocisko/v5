@@ -4,10 +4,8 @@ let eventDetail = document.querySelectorAll(".seeDetail");
 let inStock;
 let url = `/api/carts/${cartId}/products`;
 
-const toast = new bootstrap.Toast(document.getElementById('liveToast'));
-const stockToast = new bootstrap.Toast(document.getElementById('stockToast'));
-
-
+const toast = new bootstrap.Toast(document.getElementById("liveToast"));
+const stockToast = new bootstrap.Toast(document.getElementById("stockToast"));
 
 eventList.forEach((element) => {
   element.addEventListener("click", (e) => {
@@ -33,12 +31,12 @@ eventList.forEach((element) => {
             },
           })
             .then((response) => response.json())
-            .then( toast.show())
+            .then(toast.show())
             .then(() => {
               fetch(`/api/products/${prodID}`, {
                 method: "PUT",
                 body: JSON.stringify({
-                  stock: (inStock-1),
+                  stock: inStock - 1,
                 }),
                 headers: {
                   "Content-type": "application/json; charset=UTF-8",
@@ -46,16 +44,13 @@ eventList.forEach((element) => {
               })
                 .then((response) => response.json())
                 .then(() => {
-                  setTimeout( () => {
+                  setTimeout(() => {
                     location.reload();
-                  },1000)
-                  
+                  }, 1000);
                 });
-            })
+            });
         }
       });
-
-
   });
 });
 
