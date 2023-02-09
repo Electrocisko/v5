@@ -7,17 +7,37 @@ let url = `/api/carts/${cartId}/products`;
 const toast = new bootstrap.Toast(document.getElementById("liveToast"));
 const stockToast = new bootstrap.Toast(document.getElementById("stockToast"));
 
+const loadingData = (state) => {
+  const loading  = document.getElementById('spinner')
+  if (state) {
+    loading.classList.remove('d-none');
+  }
+else {
+  loading.classList.add('d-none');
+}
+}
+
+
+
+
+
+
+
+
+
+
 eventList.forEach((element) => {
   element.addEventListener("click", (e) => {
     e.preventDefault();
     let prodID = element.value;
-
+    loadingData(true);
     ///////////////////////
     fetch(`/api/products/${prodID}`)
       .then((response) => response.json())
       .then((json) => {
         inStock = json.stock;
         if (inStock <= 0) {
+          loadingData(false);
           stockToast.show();
         } else {
           console.log("con stock");
@@ -44,7 +64,7 @@ eventList.forEach((element) => {
               })
                 .then((response) => response.json())
                 .then(() => {
-                
+                  loadingData(false);
                     location.reload();
               
                 });
